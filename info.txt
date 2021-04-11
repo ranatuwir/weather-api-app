@@ -1,0 +1,5 @@
+api key = 89cfc3719f6983d24c6f54b6e9725fe4
+
+//create a form to ask users 
+//error message when no matching location is found 
+//find out a way to get the country and 

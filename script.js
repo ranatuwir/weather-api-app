@@ -1,10 +1,12 @@
 
+
 const APIkey = '89cfc3719f6983d24c6f54b6e9725fe4'
 const units = 'metric'
 const container = document.getElementById('container');
 const p = document.createElement('p');
 const submitBtn = document.querySelector('.submit-btn');
 
+document.addEventListener('DOMcontentloaded', fetchWeather('leeds'))
 submitBtn.addEventListener('click',handleSubmit);
 
 //fetch
@@ -25,6 +27,7 @@ function fetchWeather(location){
         })
         .catch((err) => {
             console.log('error');
+            handleError()
         })
     
     container.appendChild(p)
@@ -65,8 +68,19 @@ function displayWeather(data) {
     document.querySelector('.card-title').textContent =  `${data.city}, ${data.location}`
     document.querySelector('.display-1').innerHTML =  `${data.temp}&deg;`
     document.querySelector('.condition').textContent =  `${data.condition}`
-    document.querySelector('.feels').textContent =  `FEELS LIKE: ${data.feels_like}`
-    document.querySelector('.h').innerHTML =  `H: ${data.high}&deg;`
-    document.querySelector('.l').innerHTML =  `L: ${data.low}&deg;`
+    document.querySelector('.feels').innerHTML =  `FEELS LIKE: ${data.feels_like}&deg;`
+    document.querySelector('.h').innerHTML =  `High: ${data.high}&deg;`
+    document.querySelector('.l').innerHTML =  `Low: ${data.low}&deg;`
 }
 
+function handleError(){
+    const inputGroup = document.querySelector('.input-group')
+    const alert = document.createElement('div')
+    alert.className = 'alert alert-warning'
+    alert.textContent = 'Please check your spelling and try again'
+    container.insertBefore(alert, inputGroup)
+
+    setTimeout(() => alert.remove(), 3000)
+
+
+}

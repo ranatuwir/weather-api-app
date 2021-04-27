@@ -1,2 +1,4 @@
 # weather-api-app
-created a weather app using an api 
+Created [OpenWeather API](https://openweathermap.org/) which fetches the current weather of a searched location. 
+
+[Live Demo!](https://ranatuwir.github.io/weather-api-app/)

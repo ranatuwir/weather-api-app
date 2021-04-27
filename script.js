@@ -11,8 +11,16 @@ submitBtn.addEventListener('click',handleSubmit);
 
 //fetch
 function fetchWeather(location){
+
+    let url;
+    if(location.protocol === 'http') {
+        url = `http://api.openweathermap.org/data/2.5/weather?q=${location}&units=${units}&appid=${APIkey}`
+    }
+    else {
+        url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=${units}&appid=${APIkey}`
+    }
     
-    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${location}&units=${units}&appid=${APIkey}`,
+    fetch(url,
     {
         mode: "cors"
     })

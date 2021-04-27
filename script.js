@@ -35,6 +35,7 @@ function fetchWeather(location){
         })
         .catch((err) => {
             console.log('error');
+            console.log('did it work')
             handleError()
         })
     
